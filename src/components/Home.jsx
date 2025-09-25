@@ -1,39 +1,19 @@
-import { useState } from "react";
 
-const Home = () => {
-    const [showMenu, setShowMenu] = useState(false);
-
+const Home = ({showMenu}) => {
     return (
-        <div className="overflow-hidden relative pt-8 bg-[url('/home/background-home-mobile.jpg')] bg-center sm:bg-[url('/home/background-home-tablet.jpg')] md:bg-[url('/home/background-home-desktop.jpg')] w-full h-screen bg-no-repeat bg-cover">
-            <div id="navbar" className="flex items-center justify-between p-4 md:px-10 md:bg-white/20 ">
-                <div>
-                    <img src="/home/logo.svg" alt="" />
+        <div className="overflow-hidden  relative pt-36 bg-[url('/home/background-home-mobile.jpg')] bg-center sm:bg-[url('/home/background-home-tablet.jpg')] md:bg-[url('/home/background-home-desktop.jpg')] w-full h-screen bg-no-repeat bg-cover">
+            <div className={`${showMenu ? "blur md:blur-0" : "blur-0"} md:px-20 md:mt-48 text-white mt-6 flex flex-col md:flex-row justify-between items-center gap-x-16`}>
+                <div className="md:w-1/2 ">
+                    <p className="text-center md:text-start text-blue-300">SO, YOU WANT TO TRAVEL TO</p>
+                    <h1 className="text-center md:text-start text-8xl my-8">SPACE</h1>
+                    <p className="text-center md:text-start text-blue-300 px-6 md:px-0">Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
                 </div>
-                <nav className={`${showMenu ? "w-64 -translate-x-0" : "w-0 md:w-full translate-x-10 md:translate-x-0"} overflow-hidden transition-all duration-200 p-4 pt-16 gap-y-10 md:p-0 flex flex-col md:flex-row md:justify-end absolute z-10 right-0 top-0 md:static bg-gray-900/90 h-full md:bg-white/0`}>
-                    <div onClick={()=>{setShowMenu(false)}} className="md:hidden flex justify-end cursor-pointer">
-                        <img src="/home/icon-close.svg" alt="" />
-                    </div>
-                    <ul className="text-white flex flex-col md:flex-row gap-6 md:gap-10">
-                        <li>
-                            <a href="#" className="text-nowrap block py-1 md:flex md:py-0 ">00 HOME</a>
-                        </li>
-                        <li>
-                            <a href="#" className="text-nowrap block py-1 md:flex md:py-0">01 DESTINATION</a>
-                        </li>
-                        <li>
-                            <a href="#" className="text-nowrap block py-1 md:flex md:py-0">02 CREW</a>
-                        </li>
-                        <li>
-                            <a href="#" className="text-nowrap block py-1 md:flex md:py-0">03 TECHNOLOGY</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div onClick={() => { setShowMenu(true) }} className={`${showMenu ? "hidden" : "flex"} md:hidden cursor-pointer`}>
-                    <img src="/home/icon-hamburger.svg" alt="" />
+                <div className="flex justify-center md:justify-end md:items-start mt-16 md:mt-0 md:w-1/2 cursor-pointer">
+                    <p className="text-black bg-white w-36 h-36 md:w-60 md:h-60 md:text-3xl rounded-full flex justify-center items-center text-2xl">EXPLORE</p>
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
 export default Home;
